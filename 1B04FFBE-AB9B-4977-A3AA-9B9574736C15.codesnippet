@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#define DebugLog( s, ... ) if ( RK_LOG_ENABLED ) {NSLog( @"\n\n&lt;%p %@:(%d)&gt; %@", self, [[NSString stringWithUTF8String:__FILE__] lastPathComponent], __LINE__, [NSString stringWithFormat:(s), ##__VA_ARGS__] );} else{}
+
+#define LOG_FUN DebugLog(@"%@ %@",[self class],[NSString stringWithUTF8String:__func__])
+
+//
+// Workaround to remove NSLog and change some configs based on the kind of compilation
+// If __OPTIMIZE__ is defined (default definition by the compiler when in release mode)
+// we use the config for production otherwise, we use the config for development environment.
+//
+#define NSLOG_ENABLED
+
+#ifdef NSLOG_ENABLED
+
+#ifndef __OPTIMIZE__ // __OPTIMIZE__ is not enables, it means that the active config is Debug, so let NSLog enabled
+
+#define NSLog(...) NSLog(__VA_ARGS__)
+
+#else //__OPTIMIZE__ is defined, so disable NSLog
+
+#define NSLog(...) {}
+
+#endif // __OPTIMIZE__
+
+#else // NSLOG_ENABLED is not defined, so disable NSLog
+
+#define NSLog(...) {}
+
+#endif // NSLOG_ENABLED</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>1B04FFBE-AB9B-4977-A3AA-9B9574736C15</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>日志配置</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
