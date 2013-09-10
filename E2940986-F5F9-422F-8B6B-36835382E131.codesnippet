@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>TopLevel</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>#import "UIDevice+Platform.h"
+#include &lt;sys/sysctl.h&gt;
+
+@implementation UIDevice (Platform)
+
+- (NSString *)getCurrentPlatform {
+    size_t size;
+    sysctlbyname("hw.machine", NULL, &amp;size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &amp;size, NULL, 0);
+    NSString* platform = [NSString stringWithCString:machine encoding:NSUTF8StringEncoding];
+    free(machine);
+    return platform;
+}
+
+
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>E2940986-F5F9-422F-8B6B-36835382E131</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>UIDevice (Platform)</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDECodeSnippetCompletionScopes</key>
+	<array>
+		<string>StringOrComment</string>
+	</array>
+	<key>IDECodeSnippetContents</key>
+	<string>//
+//  NSString+Util.h
+//  PazteUp
+//
+//  Created by lili on 13-9-10.
+//  Copyright (c) 2013年 kdanmobile. All rights reserved.
+//
+
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface NSString (Util)
+- (NSString *)md5;
++ (NSString *)md5:(NSString *)str;
++ (NSString *)fileMd5:(NSString *)path;
++ (NSString *)random;
+@end
+</string>
+	<key>IDECodeSnippetIdentifier</key>
+	<string>4A511FB9-841D-4918-A5F7-E0D2A0D73182</string>
+	<key>IDECodeSnippetLanguage</key>
+	<string>Xcode.SourceCodeLanguage.Objective-C-Plus-Plus</string>
+	<key>IDECodeSnippetTitle</key>
+	<string>字符串工具分类(h)</string>
+	<key>IDECodeSnippetUserSnippet</key>
+	<true/>
+	<key>IDECodeSnippetVersion</key>
+	<integer>0</integer>
+</dict>
+</plist>
